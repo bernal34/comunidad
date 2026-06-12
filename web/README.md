@@ -64,6 +64,14 @@ supabase/
 
 ## Estado actual
 - [x] Fase 0 — Multi-tenancy, auth, RLS, panel base
-- [ ] Fase 1 — Núcleo financiero (esquema listo; UI pendiente)
+- [x] Fase 1a — CRUD de condominios, unidades y residentes
+- [x] Fase 1b — Emisión de cuotas, estado de cuenta y registro de pagos (conciliación FIFO)
+- [ ] Fase 1c — Movimientos (ingresos/egresos), medidores y reportes/balances
 - [ ] Fase 2 — Comunidad (amenidades, mensajería, accesos, votaciones)
 - [ ] Fase 3 — Add-ons MX (STP/SPEI, CFDI 4.0)
+
+### Operaciones disponibles (RPCs SQL, security definer)
+- `crear_condominio` — onboarding: crea organización + condominio y deja al usuario como administrador.
+- `agregar_residente` — crea/reutiliza persona-contacto y la vincula a una unidad.
+- `emitir_cuotas` — emisión masiva por periodo (monto fijo o proporcional a la alícuota).
+- `registrar_pago` — registra el abono y lo concilia FIFO contra las cuotas más antiguas.

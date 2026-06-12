@@ -100,6 +100,14 @@ export default async function UnidadesPage({
               placeholder="Alícuota % (ej. 8.5)"
               className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
             />
+            <input
+              name="cuota_mensual"
+              type="number"
+              step="0.01"
+              min="0"
+              placeholder="Cuota mensual / prorrateo (ej. 4125)"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-emerald-500 focus:outline-none focus:ring-1 focus:ring-emerald-500"
+            />
             <button className="w-full rounded-lg bg-emerald-600 px-4 py-2 text-sm font-medium text-white hover:bg-emerald-700">
               Agregar unidad
             </button>

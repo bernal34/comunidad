@@ -14,6 +14,7 @@ export async function crearUnidad(condominioId: string, formData: FormData) {
     identificador,
     tipo: String(formData.get("tipo") ?? "departamento"),
     alicuota: Number(formData.get("alicuota") ?? 0) || 0,
+    cuota_mensual: Number(formData.get("cuota_mensual") ?? 0) || 0,
   });
 
   if (error) throw new Error(error.message);

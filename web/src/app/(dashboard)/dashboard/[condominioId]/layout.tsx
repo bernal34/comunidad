@@ -9,7 +9,7 @@ export default async function CondominioLayout({
   params: Promise<{ condominioId: string }>;
 }) {
   const { condominioId } = await params;
-  const { condominio, rol } = await requireCondominio(condominioId);
+  const { condominio, rol, esAdmin } = await requireCondominio(condominioId);
 
   const base = `/dashboard/${condominioId}`;
   const nav = [
@@ -17,6 +17,7 @@ export default async function CondominioLayout({
     { href: `${base}/unidades`, label: "Unidades" },
     { href: `${base}/residentes`, label: "Residentes" },
     { href: `${base}/cuotas`, label: "Cuotas" },
+    ...(esAdmin ? [{ href: `${base}/configuracion`, label: "Configuración" }] : []),
   ];
 
   return (
